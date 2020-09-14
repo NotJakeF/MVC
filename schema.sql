@@ -1,0 +1,29 @@
+DROP DATABASE IF EXISTS userDB;
+CREATE DATABASE userDB;
+USE userDB;
+
+CREATE TABLE userName(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  userName VARCHAR(100),
+  pass VARCHAR(100),
+  PRIMARY KEY (id)
+);
+drop table blogPost;
+CREATE TABLE blogPost(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  post VARCHAR(1000),
+  userName VARCHAR(100),
+  timeStamp datetime DEFAULT CURRENT_TIMESTAMP, 
+  PRIMARY KEY (id)
+);
+drop table blogComment;
+CREATE TABLE blogComment(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  comment VARCHAR(1000),
+  blogPostId INTEGER(11),
+  userName VARCHAR(100),
+  timeStamp datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE  blogPost CHANGE  `dt`  `dt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
